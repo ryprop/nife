@@ -2,7 +2,7 @@
 	"name": "ryprop/nife",
 	"type": "library",
 	"description": "Modern, no-bullshit MVC framework for PHP",
-	"keywords": ["nife", "mvc"]
+	"keywords": ["nife", "mvc"],
 	"homepage": "http://www.nife-framework.org",
 	"authors": [
 		{
