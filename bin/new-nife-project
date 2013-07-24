@@ -111,7 +111,7 @@ $projectDir = '.';
 if( $interactive ) {
 	$projectName = prompt( "Project name", $projectName );
 	$setupper = new Nife_ProjectSetupper( $templateDir, $projectDir, $projectName );
-	$projectNamespace = prompt( "Project namespace", $setupper->projectNamespace );
+	$setupper->projectNamespace = prompt( "Project namespace", $setupper->projectNamespace );
 } else {
 	$setupper = new Nife_ProjectSetupper( $templateDir, $projectDir, $projectName );
 }
