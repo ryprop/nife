@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Represents a value that may not be available yet.
+ * Accessor for a value that may not be available yet.
  */
 interface Nife_Futures_Future
 {
