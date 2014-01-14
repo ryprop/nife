@@ -34,7 +34,7 @@ interface Nife_DBC_QueryResult implements Iterator
 	public function getRows(); 
 	
 	/**
-	 * Return true if there is another result set afte this one
+	 * Return true if there is another result set after this one
 	 * (which can be gotten with nextResult()
 	 */
 	public function hasMoreResults();
