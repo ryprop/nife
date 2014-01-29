@@ -8,7 +8,7 @@ way.  Copy over the classes that you want, implement the interfaces
 with your own backends as needed, and ignore the parts that aren't
 useful to your project.
 
-#### Philosophy
+### Philosophy
 
 - To maximize reusability, interfaces should be designed to handle a
   single use case, and provide only a single way to use them.
@@ -32,3 +32,25 @@ useful to your project.
   their purpose is obvious enough.
   (I may change my mind about this point.)
 - Follow standard naming and documentation conventions.
+
+## Getting Started
+
+### With Composer
+
+If you already have a Composer-based project, add Nife to the requirements in composer.json:
+
+```json
+{
+  "require": {
+    "php": ">=5.2.0",
+    "ryprop/nife": "0.0.*"
+  },
+  "minimum-stability": "dev",
+}
+````
+
+Nife comes with a program, ```bin/new-nife-project```,
+that can generate a bit of boilerplate to get you started.
+This will generate ```composer.json``` if it is not already present.
+If you use the above ```composer.json``` example to install Nife,
+delete it before running ```vendor/ryprop/nife/bin/new-nife-project```.
