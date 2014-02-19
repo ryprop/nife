@@ -72,7 +72,9 @@ class Nife_Util
 	}
 	
 	public static function outputResponse( Nife_HTTP_Response $res ) {
-		header( "Status: ".$res->getStatusCode()." ".$res->getStatusText() );
+		$statusLine = $res->getStatusCode()." ".$res->getStatusText();
+		header( "HTTP/1.0 $statusLine" );
+		header( "Status: $statusLine" );
 		foreach( $res->getHeaders() as $k => $v ) {
 			$lk = strtolower($k);
 			if( $lk == 'content-length' ) continue;
