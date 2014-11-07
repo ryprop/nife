@@ -61,6 +61,7 @@ class Nife_Util
 		return new Nife_HTTP_BasicResponse($statusCode, $statusText, $headers, $content);
 	}
 	
+	/** @api */
 	public static function output( $thing ) {
 		if( is_scalar($thing) ) {
 			echo $thing;
@@ -71,6 +72,26 @@ class Nife_Util
 		}
 	}
 	
+	/**
+	 * Returns an output function that simply echoes whatever is fed to it.
+	 * @api
+	 */
+	public static function getEchoFunction() {
+		return array('Nife_Util','output');
+	}
+	
+	/**
+	 * Returns true if the functon provided is the echo function.
+	 * This may be useful when implementing blobs that would
+	 * otherwise need to use output buffering to collect output
+	 * before sending it elsewhere.
+	 * @api
+	 */
+	public static function isEchoFunction( $f ) {
+		return self::getEchoFunction() == $f;
+	}
+	
+	/** @api */
 	public static function outputResponse( Nife_HTTP_Response $res ) {
 		$statusLine = $res->getStatusCode()." ".$res->getStatusText();
 		header( "HTTP/1.0 $statusLine" );
