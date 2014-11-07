@@ -16,6 +16,17 @@ class Nife_Util
 	}
 	
 	/**
+	 * This function is intended for use by blobs to implement
+	 * __toString when there is no obviously more straightforward or
+	 * efficient way.
+	 */
+	public static function stringifyBlob( Nife_Blob $blob ) {
+		$c = new Nife_Collector();
+		$blob->writeTo($c);
+		return (string)$c;
+	}
+	
+	/**
 	 * Return default status text for a status code.
 	 * If you don't like these, pass status text explicitly.
 	 */
