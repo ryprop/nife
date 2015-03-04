@@ -45,10 +45,10 @@ class Nife_Util
 	/**
 	 * Convenience method for creating an HTTP Response.
 	 * @param $status status code or "<code> <text>" string
-	 * @param $content string or Blob representing response content
+	 * @param $content string or Blob representing response content; null for body-less responses
 	 * @param $typeOrHeaders string containing value of content-type header, or array of headers
 	 */
-	public static function httpResponse( $status, $content, $typeOrHeaders='text/plain; charset=utf-8' ) {
+	public static function httpResponse( $status, $content=null, $typeOrHeaders=null ) {
 		if( is_int($status) ) {
 			$statusCode = $status;
 			$statusText = self::statusCodeText($statusCode); // 
@@ -59,7 +59,15 @@ class Nife_Util
 			throw new Exception("Status must be an integer or '<code> <text>' string; got ".var_export($status,true));
 		}
 		
-		$content = self::blob($content);
+		$content = $content === null ? null : self::blob($content);
+		
+		if( $typeOrHeaders === null ) {
+			if( $content ) {
+				$typeOrHeaders = array('content-type' => 'text/plain; charset=utf-8');
+			} else {
+				$typeOrHeaders = array();
+			}
+		}
 		
 		if( is_array($typeOrHeaders) ) {
 			$headers = $typeOrHeaders;			
@@ -114,9 +122,11 @@ class Nife_Util
 			header("$k: $v");
 		}
 		$content = $res->getContent();
-		if( ($contentLength = $content->getLength()) !== null ) {
-			header("Content-Length: $contentLength");
+		if( $content !== null ) {
+			if( ($contentLength = $content->getLength()) !== null ) {
+				header("Content-Length: $contentLength");
+			}
+			self::output($content);
 		}
-		self::output($content);
 	}
 }
