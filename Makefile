@@ -1,10 +1,20 @@
-default: run-tests
+default: run-unit-tests
 
-.PHONY: default vendor run-tests
+.PHONY: \
+	clean \
+	default \
+	run-unit-tests \
+	test-dependencies \
+	vendor
+
+clean:
+	rm -rf vendor
 
 vendor: composer.json
 	composer install
 	touch "$@"
 
-run-tests: vendor
-	phpunit --bootstrap vendor/autoload.php test
+test-dependencies: vendor
+
+run-unit-tests: test-dependencies
+	vendor/bin/phpunit --bootstrap vendor/autoload.php test
