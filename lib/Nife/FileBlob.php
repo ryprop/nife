@@ -20,7 +20,7 @@ class Nife_FileBlob implements Nife_Blob
 		if( $fh === false ) {
 			throw new Exception("Failed to open {$this->file} for reading");
 		}
-		while( $data = fread($fh, 65536) ) {
+		while( ($data = fread($fh, 65536)) !== false and strlen($data) > 0 ) {
 			call_user_func($callback, $data);
 		}
 		fclose($fh);
