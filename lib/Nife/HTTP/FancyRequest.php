@@ -46,7 +46,7 @@ implements Nife_HTTP_Request
 	}
 	
 	public static function fromEnvironment() {
-		$superGlobals = [];
+		$superGlobals = array();
 		foreach( $GLOBALS as $k=>$v ) {
 			if( $k[0] == '_' and $k != '_SESSION' ) {
 				$superGlobals[substr($k,1)] = $v;
