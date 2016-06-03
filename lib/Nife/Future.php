@@ -3,7 +3,7 @@
 /**
  * Accessor for a value that may not be available yet.
  */
-interface Nife_Futures_Future
+interface Nife_Future
 {
 	/**
 	 * Is the future's value available, yet?  i.e., can you guarantee
@@ -15,6 +15,7 @@ interface Nife_Futures_Future
 	 */
 	public function get();
 	
+	// __invoke should be an alias for get()
 	// __toString should not wait for or use the value
 	// __destruct should cancel any work being done
 }
