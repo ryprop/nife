@@ -19,3 +19,5 @@ interface Nife_Future
 	// __toString should not wait for or use the value
 	// __destruct should cancel any work being done
 }
+
+if( function_exists('class_alias') ) class_alias('Nife_Future','Nife_Futures_Future',true);
