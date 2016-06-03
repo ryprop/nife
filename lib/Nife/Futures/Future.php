@@ -1,3 +1,4 @@
 <?php
 
-class_alias('Nife_Future','Nife_Futures_Future',true);
+// Force autoloader to load Nife_Future, where the alias is made.
+class_exists('Nife_Future',true);
