@@ -3,7 +3,12 @@
 /** 
  * A blob that's implemented in terms of
  * a callback function that just outputs everything
- * to php://output
+ * to php://output.
+ * 
+ * Uses ob_* functions to collect output data if necessary,
+ * but is smart enough to let the wrapped function simply
+ * output straight to php://output when writing to the
+ * echo function returned by Nife_Util::getEchoFunction().
  */
 class Nife_OutputBlob implements Nife_Blob
 {
