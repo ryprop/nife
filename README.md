@@ -45,7 +45,7 @@ If you already have a Composer-based project, add Nife to the requirements in co
 {
   "require": {
     "php": ">=5.2.0",
-    "ryprop/nife": "~0.1.0"
+    "ryprop/nife": "^0.2.10"
   },
   "minimum-stability": "dev",
 }
