@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/TOGoS/nife.svg?branch=master)](https://travis-ci.org/TOGoS/nife)
-
 ## The Nife PHP framework
 
 Unlike many PHP MVC frameworks, Nife does not force you to code in a
