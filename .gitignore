@@ -1,2 +1,6 @@
-composer.lock
-vendor
+/composer.lock
+/vendor
+# Emacs auto-saves and backups:
+*~
+.#*
+\#*
