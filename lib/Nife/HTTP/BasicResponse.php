@@ -2,6 +2,10 @@
 
 class Nife_HTTP_BasicResponse implements Nife_HTTP_Response
 {
+	protected $statusCode;
+	protected $statusText;
+	protected $headers;
+	protected $content;
 	public function __construct( $statusCode, $statusText, array $headers, Nife_Blob $content=null ) {
 		$this->statusCode = (int)$statusCode;
 		$this->statusText = (string)$statusText;
