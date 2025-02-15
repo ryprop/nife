@@ -1,6 +1,6 @@
 <?php
 
-class Nife_CatBlobTest extends PHPUnit_Framework_TestCase
+class Nife_CatBlobTest extends TOGoS_SimplerTest_TestCase
 {
 	protected $tempBuffer = array();
 	public function appendToTempBuffer( $thing ) {

@@ -17,4 +17,4 @@ vendor: composer.json
 test-dependencies: vendor
 
 run-unit-tests: test-dependencies
-	vendor/bin/phpunit --bootstrap vendor/autoload.php test
+	vendor/bin/phpsimplertest --bootstrap vendor/autoload.php test

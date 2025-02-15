@@ -6,7 +6,7 @@ class Nife_Future_FiftySevenFuture implements Nife_Futures_Future
 	public function get() { return 57; }
 }
 
-class Nife_Future_OldFutureTest extends PHPUnit_Framework_TestCase
+class Nife_Future_OldFutureTest extends TOGoS_SimplerTest_TestCase
 {
 	public function testInstanceOf() {
 		$x = new Nife_Future_ConstantFuture(38);

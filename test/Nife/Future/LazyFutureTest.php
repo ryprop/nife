@@ -1,6 +1,6 @@
 <?php
 
-class Nife_Future_LazyFutureTest extends PHPUnit_Framework_TestCase
+class Nife_Future_LazyFutureTest extends TOGoS_SimplerTest_TestCase
 {
 	protected $generateCalled = 0;
 	public function generateSomething() {

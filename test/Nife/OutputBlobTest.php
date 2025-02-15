@@ -1,6 +1,6 @@
 <?php
 
-class Nife_OutputBlobTest extends PHPUnit_Framework_TestCase
+class Nife_OutputBlobTest extends TOGoS_SimplerTest_TestCase
 {
 	public function echoSomeStuff() {
 		echo "Some ";

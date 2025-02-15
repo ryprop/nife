@@ -1,6 +1,6 @@
 <?php
 
-class Nife_HTTP_FancyRequestTest extends PHPUnit_Framework_TestCase
+class Nife_HTTP_FancyRequestTest extends TOGoS_SimplerTest_TestCase
 {
 	public function testABigOne() {
 		$req = new Nife_HTTP_FancyRequest('GET', '/', 'foo=bar&&');

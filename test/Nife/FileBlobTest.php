@@ -1,6 +1,6 @@
 <?php
 
-class Nife_FileBlobTest extends PHPUnit_Framework_TestCase
+class Nife_FileBlobTest extends TOGoS_SimplerTest_TestCase
 {
 	public function testFileBlob() {
 		$file = 'README.md';

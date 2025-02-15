@@ -1,6 +1,6 @@
 <?php
 
-class Nife_UtilTest extends PHPUnit_Framework_TestCase
+class Nife_UtilTest extends TOGoS_SimplerTest_TestCase
 {
 	public function testFooBarBazBlob() {
 		$blob = new Nife_FooBarBazBlob();
