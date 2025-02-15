@@ -86,6 +86,8 @@ class Nife_Util
 			echo $thing;
 		} else if( $thing instanceof Nife_Blob ) {
 			$thing->writeTo( array('Nife_Util','output') );
+		} else if( $thing instanceof Nife_HTTP_Response ) {
+			self::outputResponse($thing);
 		} else {
 			throw new Exception("Don't know how to write ".var_export($thing,true)." to output.");
 		}
@@ -109,9 +111,9 @@ class Nife_Util
 	public static function isEchoFunction( $f ) {
 		return self::getEchoFunction() == $f;
 	}
-	
+
 	/** @api */
-	public static function outputResponse( Nife_HTTP_Response $res ) {
+	public static function outputResponse( Nife_HTTP_Response $res, $outputter=array('Nife_Util', 'output') ) {
 		$statusLine = $res->getStatusCode()." ".$res->getStatusText();
 		header( "HTTP/1.0 $statusLine" );
 		header( "Status: $statusLine" );
@@ -126,7 +128,14 @@ class Nife_Util
 			if( ($contentLength = $content->getLength()) !== null ) {
 				header("Content-Length: $contentLength");
 			}
-			self::output($content);
+			call_user_func($outputter, $content);
 		}
+	}
+
+	public static function makeTimeoutResettingOutputter($timeout=10, $outputter=array('Nife_Util', 'output')) {
+		return new Nife_Util_TeeOutputter(array(
+			new Nife_Util_TimeoutResetter(array('timeout'=>$timeout)),
+			$outputter
+		));
 	}
 }

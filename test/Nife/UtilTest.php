@@ -27,4 +27,17 @@ class Nife_UtilTest extends TOGoS_SimplerTest_TestCase
 		ob_end_clean();
 		$this->assertEquals( "FooBarBaz", $echoed );
 	}
+
+	public function testTimeoutResettingOutput() {
+		$log = new Nife_Collector();
+		$output = new Nife_Collector();
+		$tro = new Nife_Util_TeeOutputter(array(
+			new Nife_Util_TimeoutResetter(array('timeout'=>10, 'logger'=>$log)),
+			$output
+		));
+		call_user_func($tro, "Hello");
+		call_user_func($tro, "World");
+		$this->assertEquals("HelloWorld", (string)$output);
+		$this->assertEquals("Resetting timeout by 10 seconds.Resetting timeout by 10 seconds.", (string)$log);
+	}
 }
